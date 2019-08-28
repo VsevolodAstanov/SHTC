@@ -5,10 +5,10 @@ import argparse
 def createParser():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest='command')
-    get_parser = subparsers.add_parser('--get')
-    view_parser = subparsers.add_parser('--view')
-    get_parser.add_argument('name')
-    view_parser.add_argument('name')
+    get_parser = subparsers.add_parser('get', aliases=['--get'])
+    view_parser = subparsers.add_parser('view', aliases=['--view'])
+    get_parser.add_argument('url')
+    view_parser.add_argument('url')
 
     # parser.add_argument('--get', action='store_true', default=False)
     # parser.add_argument('--view', action='store_true', default=False)
@@ -27,9 +27,9 @@ def main():
 
     print(namespace)
 
-    if namespace['--get']:
+    if namespace.get:
         print("--get")
-    elif namespace['--view']:
+    elif namespace.view:
         print("--view")
     else:
         print("Run GUI")
