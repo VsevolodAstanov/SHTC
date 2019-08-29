@@ -8,5 +8,5 @@ setup(
     packages=['shtc'],
     description='Simple HTML Tag Counter provide an ability to count HTML Tags by specified URL',
     package_data={'': ['*.yaml']},
-    entry_points={'console_scripts': ['shtc = shtc.__main__:main']},
+    entry_points={'console_scripts': ['tagcounter = shtc.__main__:main']},
 )
