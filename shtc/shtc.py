@@ -5,6 +5,7 @@ from tkinter import *
 from shtc import tagparser
 from shtc import gui
 
+
 class TagCounter():
 
     def __init__(self):
@@ -24,10 +25,9 @@ class TagCounter():
             self.gui = False
             url = str(ns[1:][1])
 
-            #ValIdate URL
+            # ValIdate URL
 
             self.url = url
-
 
         if args.get:
             self.getData()
@@ -37,24 +37,20 @@ class TagCounter():
             gui
             print("Run GUI")
 
-
     def getData(self):
         print('Get ' + self.url)
         html = self._httpRequest()
         tp = tagparser.TagParser()
         tp.feed(html)
 
-
     def viewData(self):
         print('View ' + self.url)
-
 
     def _httpRequest(self):
         with urllib.request.urlopen(self.url) as response:
             html = response.read().decode('utf-8')
 
         return html
-
 
     def _validateURL(self):
         print("Validate URL")

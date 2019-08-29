@@ -1,5 +1,4 @@
 from tkinter import *
-from shtc.shtc import TagCounter
 
 
 class Window(Frame):
