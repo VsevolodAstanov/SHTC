@@ -4,22 +4,23 @@ class TagParser(HTMLParser):
 
     def __init__(self):
         super().__init__()
-        self.data = {}
+        self.tags = {}
 
 
     def handle_starttag(self, tag, args):
-        if tag in self.data.keys():
-            self.data[tag] += 1
-        else:
-            self.data[tag] = 1
+        self._store_tags(tag)
 
 
     def handle_startendtag(self, tag, args):
-        if tag in self.data.keys():
-            self.data[tag] += 1
+        self._store_tags(tag)
+
+
+    def get_tags(self):
+        return self.tags
+
+
+    def _store_tags(self, tag):
+        if tag in self.tags.keys():
+            self.tags[tag] += 1
         else:
-            self.data[tag] = 1
-
-
-    def get_data(self):
-        return self.data
+            self.tags[tag] = 1
