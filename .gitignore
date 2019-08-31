@@ -1,3 +1,4 @@
 .idea/*
 shtc.egg-info/*
 shtc/__pycache__/*
+/tags.db

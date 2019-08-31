@@ -9,4 +9,5 @@ setup(
     description='Simple HTML Tag Counter provide an ability to count HTML Tags by specified URL',
     package_data={'': ['*.yaml']},
     entry_points={'console_scripts': ['tagcounter = shtc.__main__:main']},
+    install_requires=['PyYAML']
 )
