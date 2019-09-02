@@ -17,7 +17,7 @@ class DB:
 
 
     def get(self, name):
-        get_query = '''SELECT * FROM tags WHERE name = ?'''
+        get_query = '''SELECT name, url, date, tags FROM tags WHERE name = ?'''
         self.curs.execute(get_query, (name,))
 
         return self.curs.fetchone()

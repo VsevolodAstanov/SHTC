@@ -12,12 +12,12 @@ def main():
         if args.get:
             tc.get_http_data()
         elif args.view:
-            tc.view_db_data()
+            tc.get_db_data()
         elif args.delete:
             tc.delete_db_data()
             sys.exit()
 
-        tc.view_tags()
+        tc.display()
     else:
         run_gui_app()
 
