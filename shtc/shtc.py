@@ -43,9 +43,7 @@ class TagCounter():
 
         if len(ns) > 1:
             url = str(ns[1:][1])
-            if not self.parse_input_url(url):
-                print('Exception: Url Not Valid')
-                sys.exit()
+            self.parse_input_url(url)
 
         return args
 
@@ -87,7 +85,7 @@ class TagCounter():
 
         print('\nName: ' + name +
               '\nURL: ' + url +
-              '\nDate: ' + date +
+              '\nLast Update: ' + date +
               '\n' + tabulate(dt, headers=['Tag', 'Amount']))
 
     def parse_input_url(self, inp):
@@ -95,7 +93,9 @@ class TagCounter():
 
         if re.match(self.URL_REGXP, inp):
             up = urlparse(inp)
-            if len(up.scheme) == 0:
+            if len(up.scheme) != 0:
+                url = inp
+            else:
                 url = 'https://' + inp
 
         with open('synonyms.yml', 'r') as ymlfile:
@@ -110,7 +110,7 @@ class TagCounter():
             self.name = self._extract_domain(url)
         else:
             # Exception "Invalid URL or Synonym URL"
-            print('Exception: URL is Invalid or no matches by synonyms')
+            print('Exception [SHTC]: URL is Invalid or no matches by synonyms')
             sys.exit()
 
     def _extract_domain(self, url):
