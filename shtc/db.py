@@ -9,12 +9,10 @@ class DB:
         date text, tags text)''')
         self.conct.commit()
 
-
     def insert(self, data):
         insert_query = '''INSERT OR REPLACE INTO tags(name, url, date, tags) VALUES (?, ?, ?, ?)'''
         self.curs.execute(insert_query, data)
         self.conct.commit()
-
 
     def get(self, name):
         get_query = '''SELECT name, url, date, tags FROM tags WHERE name = ?'''
@@ -22,12 +20,10 @@ class DB:
 
         return self.curs.fetchone()
 
-
     def delete(self, name):
         delete_query = '''DELETE FROM tags WHERE name = ?'''
         self.curs.execute(delete_query, (name,))
         self.conct.commit()
-
 
     def exist(self, name):
         get_exist_sql = '''SELECT EXISTS(SELECT id FROM tags WHERE name=? LIMIT 1)'''

@@ -24,11 +24,8 @@ class TagCounter():
         self.data = None
         self.db = db.DB()
 
-    def __getattr__(self, item):
-        try:
-            return self.__getitem__(item)
-        except KeyError:
-            raise AttributeError(item)
+    def get_data(self):
+        return self.data
 
     def get_console_args(self):
         print('Logging [SHTC]: Parse Console Arguments')
@@ -89,29 +86,32 @@ class TagCounter():
               '\n' + tabulate(dt, headers=['Tag', 'Amount']))
 
     def parse_input_url(self, inp):
-        url = None
+        try:
+            url = None
 
-        if re.match(self.URL_REGXP, inp):
-            up = urlparse(inp)
-            if len(up.scheme) != 0:
-                url = inp
+            if re.match(self.URL_REGXP, inp):
+                up = urlparse(inp)
+                if len(up.scheme) != 0:
+                    url = inp
+                else:
+                    url = 'https://' + inp
+
+            with open('synonyms.yml', 'r') as ymlfile:
+                syn = yaml.load(ymlfile, Loader=yaml.FullLoader)
+
+            for s in syn:
+                if inp == s:
+                    url = syn[s]
+
+            if url:
+                self.url = url
+                self.name = self._extract_domain(url)
             else:
-                url = 'https://' + inp
+                raise NotImplementedError("Invalid URL or Synonym URL")
 
-        with open('synonyms.yml', 'r') as ymlfile:
-            syn = yaml.load(ymlfile, Loader=yaml.FullLoader)
-
-        for s in syn:
-            if inp == s:
-                url = syn[s]
-
-        if url:
-            self.url = url
-            self.name = self._extract_domain(url)
-        else:
-            # Exception "Invalid URL or Synonym URL"
-            print('Exception [SHTC]: URL is Invalid or no matches by synonyms')
-            sys.exit()
+        except Exception as err:
+            print(err)
+            return False
 
     def _extract_domain(self, url):
         up = urlparse(url)
