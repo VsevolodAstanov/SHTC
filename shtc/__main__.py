@@ -1,5 +1,5 @@
 import sys
-
+from shtc.logger import Logger
 from shtc.shtc import TagCounter
 from shtc.gui import run_gui_app
 
@@ -10,13 +10,10 @@ def main():
     ns = sys.argv
     if len(ns) > 1:
         if args.get:
-            logging.debug('[CONSOLE] Get Data using HTTP Request')
             tc.get_http_data()
         elif args.view:
-            logging.debug('[CONSOLE] Get Data using DB')
             tc.get_db_data()
         elif args.delete:
-            logging.debug('[CONSOLE] Delete Data from DB')
             tc.delete_db_data()
             sys.exit()
 

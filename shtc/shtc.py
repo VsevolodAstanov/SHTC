@@ -5,13 +5,14 @@ import json
 import argparse
 import urllib.request
 from urllib.parse import urlparse
+from shtc.logger import Logger
 from tabulate import tabulate
 from datetime import datetime
-from shtc import db
+from shtc.db import DB
 from shtc import tagparser
 
 
-class TagCounter():
+class TagCounter:
     URL_REGXP = re.compile(
         r'^((?:http|ftp)s?://)?'  # http:// or https://
         r'(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)'  # domain...
@@ -22,13 +23,16 @@ class TagCounter():
         self.url = ''
         self.name = ''
         self.data = None
-        self.db = db.DB()
+        self.db = DB()
+        self.log = Logger()()
 
     def get_data(self):
         return self.data
 
     def get_console_args(self):
-        print('Logging [SHTC]: Parse Console Arguments')
+
+        self.log.debug('Parse Console Arguments')
+
         parser = argparse.ArgumentParser()
         commands = parser.add_mutually_exclusive_group()
         commands.add_argument('-g', '--get', nargs=1, metavar=('url'), help='get data directly using HTTP Request')
@@ -54,7 +58,6 @@ class TagCounter():
         data = (self.name, self.url, now, json.dumps(tags),)
         self.db.insert(data)
         self.data = data
-
 
     def get_db_data(self):
         data = self.db.get(self.name)
@@ -120,7 +123,10 @@ class TagCounter():
         return domain
 
     def _http_request(self):
-        with urllib.request.urlopen(self.url) as response:
-            html = response.read().decode('utf-8')
+        try:
+            with urllib.request.urlopen(self.url) as response:
+                html = response.read().decode('utf-8')
 
-        return html
+            return html
+        except ConnectionError:
+            print('Connection Lost')
