@@ -1,0 +1,268 @@
+[2019-09-05 16:54:00,876] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 16:54:00,953] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 16:54:01,026] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 16:54:01,027] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 16:54:08,131] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:54:08,132] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:54:08,133] - [DEBUG]: shtc(143) - URL: https://tut.by / NAME: tut
+[2019-09-05 16:54:08,133] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 16:54:08,133] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:54:08,133] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.by
+[2019-09-05 16:54:08,442] - [INFO]: db(22) - INSERT DATA TO DB
+[2019-09-05 16:54:14,131] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:54:14,131] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:54:14,132] - [DEBUG]: shtc(143) - URL: https://tut.bc / NAME: tut
+[2019-09-05 16:54:14,132] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.bc
+[2019-09-05 16:54:14,132] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:54:14,133] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.bc
+[2019-09-05 16:54:14,194] - [WARNING]: shtc(179) - No HTTP connection: <urlopen error [Errno 11001] getaddrinfo failed>
+[2019-09-05 16:54:14,196] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:54:21,891] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:54:21,891] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:54:21,892] - [DEBUG]: shtc(143) - URL: https://tut.by / NAME: tut
+[2019-09-05 16:54:21,892] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 16:54:21,893] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:54:47,147] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:54:47,147] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:54:47,148] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:54:47,148] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:54:47,149] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:54:47,149] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:54:47,338] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:54:47,340] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:56:58,187] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:56:58,187] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:56:58,188] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:56:58,188] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:56:58,188] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:56:58,188] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:56:58,321] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:56:58,323] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:56:58,947] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:56:58,947] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:56:58,948] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:56:58,948] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:56:58,948] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:56:58,948] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:56:59,077] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:56:59,079] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:56:59,307] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:56:59,307] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:56:59,308] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:56:59,308] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:56:59,308] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:56:59,309] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:56:59,483] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:56:59,484] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:56:59,486] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:56:59,486] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:56:59,487] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:56:59,487] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:56:59,487] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:56:59,488] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:00,614] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:00,615] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:57:00,616] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:57:00,617] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:57:00,618] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:57:00,618] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:57:00,618] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:57:00,618] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:00,712] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:00,714] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:57:00,716] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:57:00,716] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:57:00,717] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:57:00,717] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:57:00,718] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:57:00,718] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:00,825] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:00,827] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:57:00,830] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:57:00,831] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:57:00,832] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:57:00,832] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:57:00,832] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:57:00,832] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:00,960] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:00,962] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:57:00,965] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:57:00,965] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:57:00,966] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:57:00,966] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:57:00,966] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:57:00,966] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:01,098] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:01,100] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:57:01,103] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:57:01,103] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:57:01,104] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:57:01,104] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:57:01,104] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:57:01,105] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:01,230] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:01,232] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:57:01,236] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:57:01,236] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:57:01,237] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:57:01,237] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:57:01,237] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:57:01,237] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:01,352] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:01,353] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 16:57:01,355] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 16:57:01,355] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 16:57:01,356] - [DEBUG]: shtc(143) - URL: https://tut.com / NAME: tut
+[2019-09-05 16:57:01,356] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.com
+[2019-09-05 16:57:01,356] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 16:57:01,356] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://tut.com
+[2019-09-05 16:57:01,478] - [WARNING]: shtc(179) - No HTTP connection: HTTP Error 403: Forbidden
+[2019-09-05 16:57:01,479] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 17:01:37,352] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:01:37,353] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:01:37,424] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:01:37,424] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:01:40,967] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:01:40,968] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:01:41,033] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:01:41,034] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:01:47,059] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:01:47,059] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 17:01:47,061] - [DEBUG]: shtc(143) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:01:47,061] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:01:47,061] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:02:06,796] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:02:06,797] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:02:06,861] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:02:06,862] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:02:11,101] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:02:11,101] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 17:02:11,102] - [DEBUG]: shtc(143) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:02:11,102] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:02:11,102] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:02:17,357] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:02:17,357] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 17:02:43,064] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:02:43,065] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:02:43,128] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:02:43,128] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:02:46,805] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:02:46,806] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 17:02:46,807] - [DEBUG]: shtc(143) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:02:46,807] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:02:46,807] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:02:49,933] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:02:49,933] - [INFO]: shtc(152) - Open "synonyms.yml" file
+[2019-09-05 17:02:49,934] - [INFO]: shtc(88) - GET DB DATA FOR: None
+[2019-09-05 17:02:49,934] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:02:49,935] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 17:05:51,481] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:05:51,482] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:05:51,549] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:05:51,550] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:05:55,085] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:05:55,085] - [INFO]: shtc(149) - Open "synonyms.yml" file
+[2019-09-05 17:05:55,087] - [DEBUG]: shtc(140) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:05:55,087] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:05:55,087] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:05:58,829] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:05:58,829] - [INFO]: shtc(149) - Open "synonyms.yml" file
+[2019-09-05 17:05:58,830] - [INFO]: shtc(88) - GET DB DATA FOR: 
+[2019-09-05 17:05:58,830] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:05:58,831] - [INFO]: shtc(62) - GET HTTP DATA FOR: 
+[2019-09-05 17:05:58,832] - [WARNING]: shtc(176) - No HTTP connection: unknown url type: ''
+[2019-09-05 17:05:58,832] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 17:06:34,824] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:06:34,825] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:06:34,887] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:06:34,888] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:06:39,181] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:06:39,181] - [INFO]: shtc(149) - Open "synonyms.yml" file
+[2019-09-05 17:06:39,183] - [INFO]: shtc(88) - GET DB DATA FOR: 
+[2019-09-05 17:06:39,183] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:06:39,183] - [INFO]: shtc(62) - GET HTTP DATA FOR: 
+[2019-09-05 17:06:39,184] - [WARNING]: shtc(176) - No HTTP connection: unknown url type: ''
+[2019-09-05 17:06:39,185] - [CRITICAL]: shtc(82) - <class 'TypeError'>
+[2019-09-05 17:07:28,657] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:07:28,658] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:07:28,725] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:07:28,725] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:07:32,045] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:07:32,045] - [INFO]: shtc(149) - Open "synonyms.yml" file
+[2019-09-05 17:07:32,047] - [DEBUG]: shtc(140) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:07:32,047] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:07:32,047] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:07:35,157] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:07:35,157] - [INFO]: shtc(149) - Open "synonyms.yml" file
+[2019-09-05 17:07:35,159] - [INFO]: shtc(88) - GET DB DATA FOR: 
+[2019-09-05 17:07:35,159] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:07:35,159] - [INFO]: shtc(62) - GET HTTP DATA FOR: 
+[2019-09-05 17:07:35,160] - [WARNING]: shtc(176) - No HTTP connection: unknown url type: ''
+[2019-09-05 17:07:35,161] - [CRITICAL]: shtc(82) - <class 'TypeError'>
+[2019-09-05 17:08:00,048] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:08:00,049] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:08:00,115] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:08:00,116] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:08:06,141] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:08:06,141] - [INFO]: shtc(149) - Open "synonyms.yml" file
+[2019-09-05 17:08:06,143] - [DEBUG]: shtc(140) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:08:06,143] - [INFO]: shtc(88) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:08:06,143] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:08:12,181] - [INFO]: shtc(121) - PARSE URL
+[2019-09-05 17:08:12,181] - [INFO]: shtc(149) - Open "synonyms.yml" file
+[2019-09-05 17:08:12,182] - [INFO]: shtc(88) - GET DB DATA FOR: 
+[2019-09-05 17:08:12,182] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:08:12,183] - [INFO]: shtc(62) - GET HTTP DATA FOR: 
+[2019-09-05 17:08:12,184] - [WARNING]: shtc(176) - No HTTP connection: unknown url type: ''
+[2019-09-05 17:08:12,184] - [CRITICAL]: shtc(82) - can only concatenate str (not "NoneType") to str
+[2019-09-05 17:09:41,913] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:09:41,914] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:09:41,978] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:09:41,978] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:09:45,813] - [INFO]: shtc(118) - PARSE URL
+[2019-09-05 17:09:45,813] - [INFO]: shtc(146) - Open "synonyms.yml" file
+[2019-09-05 17:09:45,814] - [DEBUG]: shtc(137) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:09:45,814] - [INFO]: shtc(85) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:09:45,815] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:09:47,733] - [INFO]: shtc(118) - PARSE URL
+[2019-09-05 17:09:47,733] - [INFO]: shtc(146) - Open "synonyms.yml" file
+[2019-09-05 17:09:47,735] - [INFO]: shtc(85) - GET DB DATA FOR: 
+[2019-09-05 17:09:47,735] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:09:47,735] - [INFO]: shtc(62) - GET HTTP DATA FOR: 
+[2019-09-05 17:09:47,736] - [WARNING]: shtc(173) - No HTTP connection: unknown url type: ''
+[2019-09-05 17:09:47,736] - [CRITICAL]: shtc(79) - Unable to get HTML
+[2019-09-05 17:10:17,565] - [INFO]: shtc(118) - PARSE URL
+[2019-09-05 17:10:17,566] - [INFO]: shtc(146) - Open "synonyms.yml" file
+[2019-09-05 17:10:17,567] - [DEBUG]: shtc(137) - URL: https://vk.com / NAME: vk
+[2019-09-05 17:10:17,567] - [INFO]: shtc(85) - GET DB DATA FOR: https://vk.com
+[2019-09-05 17:10:17,567] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:10:17,567] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://vk.com
+[2019-09-05 17:10:17,880] - [INFO]: db(22) - INSERT DATA TO DB
+[2019-09-05 17:10:19,773] - [INFO]: shtc(118) - PARSE URL
+[2019-09-05 17:10:19,773] - [INFO]: shtc(146) - Open "synonyms.yml" file
+[2019-09-05 17:10:19,774] - [DEBUG]: shtc(137) - URL: https://vk.co / NAME: vk
+[2019-09-05 17:10:19,774] - [INFO]: shtc(85) - GET DB DATA FOR: https://vk.co
+[2019-09-05 17:10:19,774] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:10:19,775] - [INFO]: shtc(62) - GET HTTP DATA FOR: https://vk.co
+[2019-09-05 17:10:20,220] - [WARNING]: shtc(173) - No HTTP connection: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'vk.co'. (_ssl.c:1076)>
+[2019-09-05 17:10:20,222] - [CRITICAL]: shtc(79) - Unable to get HTML
+[2019-09-05 17:22:17,847] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:22:17,848] - [INFO]: shtc(36) - GET CONSOLE ARGUMENTS
+[2019-09-05 17:22:17,912] - [INFO]: db(10) - INITIALIZE SQLite DB
+[2019-09-05 17:22:17,912] - [INFO]: gui(17) - INITIALIZE GUI APPLICATION
+[2019-09-05 17:22:21,655] - [INFO]: gui(64) - GET GUI DATA
+[2019-09-05 17:22:21,656] - [INFO]: shtc(118) - PARSE URL
+[2019-09-05 17:22:21,656] - [INFO]: shtc(146) - Open "synonyms.yml" file
+[2019-09-05 17:22:21,657] - [DEBUG]: shtc(137) - URL: https://tut.by / NAME: tut
+[2019-09-05 17:22:21,657] - [INFO]: shtc(85) - GET DB DATA FOR: https://tut.by
+[2019-09-05 17:22:21,658] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:22:21,658] - [INFO]: gui(84) - DISPLAY GUI DATA
+[2019-09-05 17:22:25,807] - [INFO]: gui(64) - GET GUI DATA
+[2019-09-05 17:22:25,807] - [INFO]: shtc(118) - PARSE URL
+[2019-09-05 17:22:25,807] - [INFO]: shtc(146) - Open "synonyms.yml" file
+[2019-09-05 17:22:25,808] - [INFO]: shtc(85) - GET DB DATA FOR: 
+[2019-09-05 17:22:25,808] - [INFO]: db(29) - GET DB DATA
+[2019-09-05 17:22:25,808] - [INFO]: shtc(62) - GET HTTP DATA FOR: 
+[2019-09-05 17:22:25,809] - [WARNING]: shtc(173) - No HTTP connection: unknown url type: ''
+[2019-09-05 17:22:25,810] - [CRITICAL]: shtc(79) - Unable to get HTML
+[2019-09-05 17:22:25,810] - [WARNING]: gui(79) - Unable to get data

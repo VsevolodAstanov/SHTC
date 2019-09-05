@@ -6,6 +6,7 @@ class Singleton(type):
     _instances = {}
 
     def __call__(cls, *args, **kwargs):
+
         if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
@@ -26,10 +27,10 @@ class Logger(object, metaclass=Singleton):
         stream_handler.setFormatter(formatter)
         self._logger.addHandler(stream_handler)
 
-        file_handler = logging.FileHandler('tagcounter.log')
+        file_handler = logging.FileHandler('logs.log')
         file_handler.setLevel(logging.DEBUG)
         file_handler.setFormatter(formatter)
         self._logger.addHandler(file_handler)
 
-    def __call__(self):
+    def get_logger(self):
         return self._logger

@@ -4,6 +4,7 @@ import yaml
 import json
 import argparse
 import urllib.request
+import urllib.error
 from urllib.parse import urlparse
 from shtc.logger import Logger
 from tabulate import tabulate
@@ -23,104 +24,144 @@ class TagCounter:
         self.url = ''
         self.name = ''
         self.data = None
+        self.isGUI = True
         self.db = DB()
-        self.log = Logger()()
+        self.log = Logger().get_logger()
 
     def get_data(self):
         return self.data
 
     def get_console_args(self):
+        try:
+            self.log.info('GET CONSOLE ARGUMENTS')
 
-        self.log.debug('Parse Console Arguments')
+            parser = argparse.ArgumentParser()
+            commands = parser.add_mutually_exclusive_group()
+            commands.add_argument('-g', '--get', nargs=1, metavar=('url'), help='get data directly using HTTP Request')
+            commands.add_argument('-v', '--view', nargs=1, metavar=('url'), help='get data from DB')
+            commands.add_argument('-d', '--delete', nargs=1, metavar=('url'), help='delete data from DB')
+            args = parser.parse_args()
 
-        parser = argparse.ArgumentParser()
-        commands = parser.add_mutually_exclusive_group()
-        commands.add_argument('-g', '--get', nargs=1, metavar=('url'), help='get data directly using HTTP Request')
-        commands.add_argument('-v', '--view', nargs=1, metavar=('url'), help='get data from DB')
-        commands.add_argument('-d', '--delete', nargs=1, metavar=('url'), help='delete data from DB')
-        args = parser.parse_args()
+            ns = sys.argv
 
-        ns = sys.argv
+            if len(ns) > 1:
+                self.isGUI = False
+                url = str(ns[1:][1])
+                if not self.parse_input_url(url):
+                    sys.exit()
 
-        if len(ns) > 1:
-            url = str(ns[1:][1])
-            self.parse_input_url(url)
+            return args
+        except:
+            self.log.critical('Cannot parse console arguments: ' + str(sys.exc_info()[1]))
 
-        return args
+            if not self.isGUI:
+                sys.exit()
 
     def get_http_data(self):
-        print('Logging [SHTC]: Get Data using HTTP Request')
-        html = self._http_request()
-        tp = tagparser.TagParser()
-        tp.feed(html)
-        tags = tp.get_tags()
-        now = datetime.now().strftime('%d/%m/%Y, %H:%M:%S')
-        data = (self.name, self.url, now, json.dumps(tags),)
-        self.db.insert(data)
-        self.data = data
+        try:
+            self.log.info('GET HTTP DATA FOR: ' + str(self.url))
+
+            self.data = None
+
+            html = self._http_request()
+            if not html:
+                raise Exception('Unable to get HTML')
+
+            tp = tagparser.TagParser()
+            tp.feed(html)
+            tags = tp.get_tags()
+
+            now = datetime.now().strftime('%d/%m/%Y, %H:%M:%S')
+            data = (self.name, self.url, now, json.dumps(tags),)
+            self.db.insert(data)
+            self.data = data
+        except:
+            self.log.critical(str(sys.exc_info()[1]))
+
+            if not self.isGUI:
+                sys.exit()
 
     def get_db_data(self):
-        data = self.db.get(self.name)
+        self.log.info('GET DB DATA FOR: ' + str(self.url))
+
+        self.data = None
+        data = self.db.get(self.name, self.url)
 
         if data:
             self.data = data
-            print('Logging [SHTC]: Set data from DB')
-        else:
-            self.data = None
-            print('Exception [SHTC]: No Data to Display')
 
     def delete_db_data(self):
         self.db.delete(self.name)
-        print('Logging [SHTC]: Delete Data from DB')
 
     def display(self):
-        name = self.data[0]
-        url = self.data[1]
-        date = self.data[2]
-        tags = json.loads(self.data[3])
+        try:
+            self.log.info('DISPLAY CONSOLE DATA')
 
-        dt = []
-        for t in tags:
-            dt.append([t, tags[t]])
+            name = self.data[0]
+            url = self.data[1]
+            date = self.data[2]
+            tags = json.loads(self.data[3])
 
-        print('\nName: ' + name +
-              '\nURL: ' + url +
-              '\nLast Update: ' + date +
-              '\n' + tabulate(dt, headers=['Tag', 'Amount']))
+            dt = []
+            for t in tags:
+                dt.append([t, tags[t]])
+
+            print('\nName: ' + name +
+                  '\nURL: ' + url +
+                  '\nLast Update: ' + date +
+                  '\n' + tabulate(dt, headers=['Tag', 'Amount']))
+        except:
+            self.log.critical('Unable to display data with: ' + str(sys.exc_info()[1]))
 
     def parse_input_url(self, inp):
         try:
-            url = None
+            self.log.info('PARSE URL')
+            self.url = ''
+            self.name = ''
 
             if re.match(self.URL_REGXP, inp):
                 up = urlparse(inp)
                 if len(up.scheme) != 0:
-                    url = inp
+                    self.url = inp
                 else:
-                    url = 'https://' + inp
+                    self.url = 'https://' + inp
+
+            synms = self._get_synonyms()
+
+            for s in synms:
+                if inp == s:
+                    self.url = synms[s]
+
+            if self.url:
+                self.name = self._extract_domain()
+                self.log.debug('URL: ' + self.url + ' / NAME: ' + self.name)
+
+                return True
+        except:
+            self.log.warning('Unable to parse URL: ' + str(inp))
+            return False
+
+    def _get_synonyms(self):
+        try:
+            self.log.info('Open "synonyms.yml" file')
 
             with open('synonyms.yml', 'r') as ymlfile:
                 syn = yaml.load(ymlfile, Loader=yaml.FullLoader)
 
-            for s in syn:
-                if inp == s:
-                    url = syn[s]
+            ymlfile.close()
 
-            if url:
-                self.url = url
-                self.name = self._extract_domain(url)
-            else:
-                raise NotImplementedError("Invalid URL or Synonym URL")
+            return syn
+        except:
+            self.log.warning('Unable to open synonyms.yml file')
 
-        except Exception as err:
-            print(err)
-            return False
+    def _extract_domain(self):
+        try:
+            up = urlparse(self.url)
+            domain = up.netloc.split(".")[-2]
 
-    def _extract_domain(self, url):
-        up = urlparse(url)
-        domain = up.netloc.split(".")[-2]
-
-        return domain
+            return domain
+        except:
+            self.log.critical('Unable to extract domain: ' + str(sys.exc_info()[1]))
 
     def _http_request(self):
         try:
@@ -128,5 +169,5 @@ class TagCounter:
                 html = response.read().decode('utf-8')
 
             return html
-        except ConnectionError:
-            print('Connection Lost')
+        except:
+            self.log.warning('No HTTP connection: ' + str(sys.exc_info()[1]))
