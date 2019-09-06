@@ -7,13 +7,14 @@ import urllib.request
 import urllib.error
 from urllib.parse import urlparse
 from shtc.logger import Logger
+from shtc.patterns import Singleton
 from tabulate import tabulate
 from datetime import datetime
 from shtc.db import DB
 from shtc import tagparser
 
 
-class TagCounter:
+class TagCounter(metaclass=Singleton):
     URL_REGXP = re.compile(
         r'^((?:http|ftp)s?://)?'  # http:// or https://
         r'(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)'  # domain...
@@ -21,12 +22,13 @@ class TagCounter:
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
     def __init__(self):
+        super().__init__()
+        self.log = Logger()()
         self.url = ''
         self.name = ''
         self.data = None
         self.isGUI = True
         self.db = DB()
-        self.log = Logger().get_logger()
 
     def get_data(self):
         return self.data

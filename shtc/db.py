@@ -1,12 +1,14 @@
 import sys
 import sqlite3
 from shtc.logger import Logger
+from shtc.patterns import Singleton
 
 
-class DB:
+class DB(metaclass=Singleton):
     def __init__(self):
+        super().__init__()
         try:
-            self.log = Logger().get_logger()
+            self.log = Logger()()
             self.log.info('INITIALIZE SQLite DB')
 
             self.conct = sqlite3.connect('tags.db')

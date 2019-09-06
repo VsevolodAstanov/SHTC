@@ -11,7 +11,7 @@ class TagCounterGUI(tk.Frame):
     def __init__(self, root):
         try:
             super().__init__(root)
-            self.log = Logger().get_logger()
+            self.log = Logger()()
             self.tc = TagCounter()
 
             self.log.info('INITIALIZE GUI APPLICATION')
