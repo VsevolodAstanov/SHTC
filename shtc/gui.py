@@ -55,6 +55,10 @@ class TagCounterGUI(tk.Frame):
             vsb = ttk.Scrollbar(root, orient="vertical", command=self.output_grid.yview)
             vsb.place(x=292, y=116, height=228)
             self.output_grid.configure(yscrollcommand=vsb.set)
+
+            # process Message
+            self.info_message = tk.Label(root, font=('', 11))
+            self.info_message.place(x=7, y=345, width=306)
         except:
             self.log.critical('Cannot initialize GUI Application: ' + str(sys.exc_info()[1]))
             sys.exit()
@@ -73,11 +77,11 @@ class TagCounterGUI(tk.Frame):
             if self.tc.get_data():
                 self.display()
             else:
-                raise Exception('Unable to get data')
+                raise Exception('Cannot display data using this URL')
         except Exception as err:
             self.clear_output()
             self.log.warning(str(err))
-            self.add_info_message('Error: ' + str(err))
+            self.add_info_message('error', str(err))
 
     def display(self):
         try:
@@ -92,10 +96,11 @@ class TagCounterGUI(tk.Frame):
             [self.output_grid.delete(i) for i in self.output_grid.get_children()]
             tags = json.loads(self.tc.get_data()[3])
             [self.output_grid.insert('', 'end', values=(str(row), str(tags[row]))) for row in tags]
+            self.add_info_message('info', 'Done')
         except Exception as err:
             self.clear_output()
             self.log.warning(str(err))
-            self.add_info_message('Cannot display data using this URL')
+            self.add_info_message('error', 'Cannot display data using this URL')
 
     def clear_output(self):
         for v, value in enumerate(self.out_values):
@@ -105,11 +110,14 @@ class TagCounterGUI(tk.Frame):
 
         [self.output_grid.delete(i) for i in self.output_grid.get_children()]
 
-    def add_info_message(self, msg):
-        print(msg)
+    def add_info_message(self, ty,  msg):
+        if ty is 'error':
+            self.info_message.config(fg='red', text=msg)
+        else:
+            self.info_message.config(fg='green', text=msg)
 
     def clear_info_message(self):
-        print('Clear mgs block')
+        self.info_message['text'] = ''
 
 
 def run_gui_app():
@@ -121,6 +129,6 @@ def run_gui_app():
     windowHeight = root.winfo_reqheight()
     positionRight = int(root.winfo_screenwidth() / 2 - windowWidth / 2) - 80
     positionDown = int(root.winfo_screenheight() / 2 - windowHeight / 2) - 100
-    root.geometry('320x400+{}+{}'.format(positionRight, positionDown))
+    root.geometry('320x370+{}+{}'.format(positionRight, positionDown))
     root.resizable(False, False)
     root.mainloop()
