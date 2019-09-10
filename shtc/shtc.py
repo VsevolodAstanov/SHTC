@@ -39,9 +39,9 @@ class TagCounter(metaclass=Singleton):
 
             parser = argparse.ArgumentParser()
             commands = parser.add_mutually_exclusive_group()
-            commands.add_argument('-g', '--get', nargs=1, metavar=('url'), help='get data directly using HTTP Request')
-            commands.add_argument('-v', '--view', nargs=1, metavar=('url'), help='get data from DB')
-            commands.add_argument('-d', '--delete', nargs=1, metavar=('url'), help='delete data from DB')
+            commands.add_argument('-g', '--get', nargs=1, metavar='url', help='get data directly using HTTP Request')
+            commands.add_argument('-v', '--view', nargs=1, metavar='url', help='get data from DB')
+            commands.add_argument('-d', '--delete', nargs=1, metavar='url', help='delete data from DB')
             args = parser.parse_args()
 
             ns = sys.argv
@@ -53,8 +53,8 @@ class TagCounter(metaclass=Singleton):
                     sys.exit()
 
             return args
-        except:
-            self.log.critical('Cannot parse console arguments: ' + str(sys.exc_info()[1]))
+        except Exception as err:
+            self.log.critical('Cannot parse console arguments: ' + str(err))
 
             if not self.isGUI:
                 sys.exit()
@@ -67,7 +67,7 @@ class TagCounter(metaclass=Singleton):
 
             html = self._http_request()
             if not html:
-                raise Exception('Unable to get HTML')
+                raise ValueError('Unable to get HTML')
 
             tp = tagparser.TagParser()
             tp.feed(html)
@@ -77,20 +77,25 @@ class TagCounter(metaclass=Singleton):
             data = (self.name, self.url, now, json.dumps(tags),)
             self.db.insert(data)
             self.data = data
-        except:
-            self.log.critical(str(sys.exc_info()[1]))
+        except ValueError as err:
+            self.log.critical(str(err))
 
             if not self.isGUI:
                 sys.exit()
 
     def get_db_data(self):
-        self.log.info('GET DB DATA FOR: ' + str(self.url))
+        try:
+            self.log.info('GET DB DATA FOR: ' + str(self.url))
 
-        self.data = None
-        data = self.db.get(self.name, self.url)
+            self.data = None
+            data = self.db.get(self.name, self.url)
 
-        if data:
-            self.data = data
+            if data:
+                self.data = data
+            else:
+                raise ValueError('No required data in DB')
+        except ValueError as err:
+            self.log.warning(str(err))
 
     def delete_db_data(self):
         self.db.delete(self.name)
@@ -99,21 +104,25 @@ class TagCounter(metaclass=Singleton):
         try:
             self.log.info('DISPLAY CONSOLE DATA')
 
-            name = self.data[0]
-            url = self.data[1]
-            date = self.data[2]
-            tags = json.loads(self.data[3])
+            if self.data:
 
-            dt = []
-            for t in tags:
-                dt.append([t, tags[t]])
+                name = self.data[0]
+                url = self.data[1]
+                date = self.data[2]
+                tags = json.loads(self.data[3])
 
-            print('\nName: ' + name +
-                  '\nURL: ' + url +
-                  '\nLast Update: ' + date +
-                  '\n' + tabulate(dt, headers=['Tag', 'Amount']))
-        except:
-            self.log.critical('Unable to display data with: ' + str(sys.exc_info()[1]))
+                dt = []
+                for t in tags:
+                    dt.append([t, tags[t]])
+
+                print('\nName: ' + name +
+                      '\nURL: ' + url +
+                      '\nLast Update: ' + date +
+                      '\n' + tabulate(dt, headers=['Tag', 'Amount']))
+            else:
+                raise ValueError('No data to display with requested url')
+        except ValueError as err:
+            self.log.critical(str(err))
 
     def parse_input_url(self, inp):
         try:
@@ -153,8 +162,8 @@ class TagCounter(metaclass=Singleton):
             ymlfile.close()
 
             return syn
-        except:
-            self.log.warning('Unable to open synonyms.yml file')
+        except FileNotFoundError as err:
+            self.log.warning('Unable to open synonyms.yml file: ' + str(err))
 
     def _extract_domain(self):
         try:
