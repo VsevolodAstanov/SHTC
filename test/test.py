@@ -1,9 +1,10 @@
 import unittest
-from shtc.db import DB
-from shtc.tagcounter import TagCounter
+from tagcounter.db import DB
+from tagcounter.tagcounter import TagCounter
 
 
 class TestCounterTests(unittest.TestCase):
+
     def test_url(self):
         tc = TagCounter()
         # Valid Data
@@ -11,7 +12,7 @@ class TestCounterTests(unittest.TestCase):
         self.assertTrue(tc.parse_input_url('https://test.com'))
         self.assertTrue(tc.parse_input_url('http://test.com'))
         self.assertTrue(tc.parse_input_url('test.com'))
-        self.assertTrue(tc.parse_input_url('test'))
+        self.assertTrue(tc.parse_input_url('ggl'))
 
         # InValid Data
         self.assertFalse(tc.parse_input_url('https//test.com'))
@@ -26,6 +27,7 @@ class TestCounterTests(unittest.TestCase):
         test_name = 'test'
         test_url = 'https://test.test'
         test_inp_data = (test_name, test_url, '01/01/2019 00:00:00', "{'html': 1, 'p': 1}",)
+        db.insert(test_inp_data)
         test_out_data = db.get(test_name, test_url)
 
         self.assertEqual(test_inp_data, test_out_data)

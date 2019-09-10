@@ -1,5 +1,8 @@
 .idea/*
-shtc.egg-info/*
-shtc/__pycache__/*
+tagcounter/__pycache__/*
 /tags.db
 /logs.log
+/dist
+/build
+/tagcounter.spec
+/tagcounter.egg-info/
