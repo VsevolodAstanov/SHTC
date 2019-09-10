@@ -3,7 +3,7 @@ import json
 import tkinter as tk
 from tkinter import ttk
 from shtc.logger import Logger
-from shtc.shtc import TagCounter
+from shtc.tagcounter import TagCounter
 
 
 class TagCounterGUI(tk.Frame):

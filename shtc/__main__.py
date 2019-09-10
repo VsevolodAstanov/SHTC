@@ -1,6 +1,5 @@
 import sys
-# from shtc.logger import Logger
-from shtc.shtc import TagCounter
+from shtc.tagcounter import TagCounter
 from shtc.gui import run_gui_app
 
 

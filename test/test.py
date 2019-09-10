@@ -1,6 +1,6 @@
 import unittest
 from shtc.db import DB
-from shtc.shtc import TagCounter
+from shtc.tagcounter import TagCounter
 
 
 class TestCounterTests(unittest.TestCase):
